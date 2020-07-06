@@ -16,7 +16,7 @@ def sampleToString(sample):
              "right hip", "right knee", "right ankle", "right foot", "head",
              "nose", "left eye", "left ear", "right eye", "right ear"]
     for i in range(len(names)):
-        result += names[i] + ":\np-x: " + str(sample[i*8])
+        result += names[i] + ":\n/tp-x: " + str(sample[i*8])
         result += "\n\tp-y: " + str(sample[i*8 + 1])
         result += "\n\tp-z: " + str(sample[i*8 + 2])
         result += "\n\to-w: " + str(sample[i*8 + 3])
@@ -32,6 +32,8 @@ def sampleToString(sample):
             result += "medium\n"
         elif int(sample[i*8 + 7]) == 3:
             result += "high\n"
+        else:
+            result += "unknown\n"
     return result
         
 print("Waiting for Skeleton Stream")
