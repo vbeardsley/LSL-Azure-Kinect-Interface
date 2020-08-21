@@ -2,6 +2,7 @@ This extension has been implemented both in Unity and outside of Unity in Visual
 Note: For our purposes, in both designs the code is set up to send an extra body tracking sample and an extra skeleton sample, each of all 0's, on the 20th iteration, for synchronization purposes for the receiver programs. These extra samples are not integral to the structure of the code and can be deleted if desired. They are only necessary for the ColorTracking program.
 
 
+
 For Unity:
 
 First, download the unity package file located in Google Drive at https://drive.google.com/file/d/1SfzSfJEEZqYwNulKZFpTZGXcU4G46iVA/view?usp=sharing
@@ -14,6 +15,7 @@ To modify the data collection, go to
 Lines 179-207 in CubesScript.cs for the Cubes object.
 Lines 97-125 in KinectRecorder.cs for the Kinect Recorder object.
 Note: If the trackerInTwoD variable is set to true, the tracker data will be transformed into 2d locations in the space of the color image prior to being streamed through LSL, for the purpose of allowing visual representation of the body tracking in the image.
+
 
 
 Outside of Unity:
@@ -38,6 +40,9 @@ In Configuration > Linker > Input: paste the following text at the beginning of 
 k4abt.lib;k4a.lib;lsl.lib;
 The extension is automatically set up to record color images, depth images, infrared images, body tracking data, and audio data, with the audio data being sampled at roughly N Hz, and the rest of the data being sampled at 5 frames per second. To alter this setup, go to lines N1-N2. 
 
+
+
 Notes on Receiving Data:
+
 The Lab Streaming Layer has various systems already set up to record multiple streams of data, which you can use if desired. Otherwise, sample python programs are provided in the Python Receivers folder, each of which focuses on one type of input, with the exception of the ColorTracking program, which combines body tracking data and color images to create overlays of the body tracking data on top of the color images. Also, we were unable to discover what format the audio data was streamed in, although we can confirm that each audio sample point is 28 bytes large, including data from all 7 microphones in the Kinect array.
 Now, in the decoding of color data, due to constraints of type size, in Unity, in all cases it was necessary to send data in a format that requires spiltting of short type variables into two char type variables, and in the case of NV12 and YUY2 formatted images, to then be further split into 4-bit samples. Depending on the endianness of your local machine, this may require some experimentation to discover the exact way to do this. On our local machine, the file UnityColor.py was able to translate each pair of shorts into 4 int8 variables and then use them to create the final image. In all cases, the memory was cast directly into an array and pushed through LSL, so consult the Microsoft documentation on the Kinect to study the exact data format.
