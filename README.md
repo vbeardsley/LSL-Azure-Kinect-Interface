@@ -1,6 +1,9 @@
 This extension has been implemented both in Unity and outside of Unity in Visual Studio. In both cases, due to the constraints of the Azure Kinect SDK, the extension has only been desinged for a machine running Windows software. In both cases the extension was developed on a 64-bit machine, although the basic core of the code should still work, with possibly some altered requirements for the background setup described below.
 Note: For our purposes, in both designs the code is set up to send an extra body tracking sample and an extra skeleton sample, each of all 0's, on the 20th iteration, for synchronization purposes for the receiver programs. These extra samples are not integral to the structure of the code and can be deleted if desired. They are only necessary for the ColorTracking program.
+
+
 For Unity:
+
 First, download the unity package file located in Google Drive at https://drive.google.com/file/d/1SfzSfJEEZqYwNulKZFpTZGXcU4G46iVA/view?usp=sharing
 In your target project, in the toolbar at the top, choose Assets > Import Package > Custom Package, and select LSL.Azure.Kinect.unitypackage. When the dialogue pops up, select All, then Import. This will load all of the required files, all of which will be stored in the KinectLSL folder, with required resources being stored in the Plugins subfolder, and the actual implementation code stored in the main folder.
 To use the implementation, you will need to add one of two objects to the scene you wish to capture data from. If you wish to be able to see the body tracking in your scene, add the Cubes object, which has a physical cube object for each joint tracked by the Kinect. If you don't wish to have any visible objects in the scene, add the Kinect Recorder object.
@@ -12,7 +15,9 @@ Lines 179-207 in CubesScript.cs for the Cubes object.
 Lines 97-125 in KinectRecorder.cs for the Kinect Recorder object.
 Note: If the trackerInTwoD variable is set to true, the tracker data will be transformed into 2d locations in the space of the color image prior to being streamed through LSL, for the purpose of allowing visual representation of the body tracking in the image.
 
+
 Outside of Unity:
+
 While this extension was implemented in Visual Studio, the code should be able to work in another context if properly implemented. 
 Open Visual Studio 2019 and select "Create a new project." Choose language C++, platform Windows, and project type Console, and select Empty Project, then choose Next. Choose the project name and location, along with the solution name, and leave the "Place solution and project in the same directory box" unchecked.
 
