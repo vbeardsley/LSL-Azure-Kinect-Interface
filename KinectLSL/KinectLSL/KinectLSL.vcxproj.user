@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerEnvironment>PATH=%PATH%;$(ProjectDir)\..\Azure Kinect Body Tracking SDK\sdk\windows-desktop\amd64\release\bin;$(ProjectDir)\..\Azure Kinect SDK v1.4.0\sdk\windows-desktop\amd64\release\bin;$(ProjectDir)\..\liblsl-CPP\bin;$(ProjectDir)\..\Azure Kinect Body Tracking SDK\tools</LocalDebuggerEnvironment>
-  </PropertyGroup>
-</Project>

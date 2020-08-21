@@ -1,4 +1,0 @@
-﻿  Reader.cpp
-C:\Users\HCI_Lab_003\Downloads\C++ Code\KinectLSL\KinectLSL\Reader.cpp(278,84): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Users\HCI_Lab_003\Downloads\C++ Code\KinectLSL\KinectLSL\Reader.cpp(279,81): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-  KinectLSL.vcxproj -> C:\Users\HCI_Lab_003\Downloads\C++ Code\KinectLSL\x64\Debug\KinectLSL.exe

@@ -1,4 +1,0 @@
-﻿Reader.obj : error LNK2019: unresolved external symbol __imp__lsl_create_streaminfo referenced in function "public: __thiscall lsl::stream_info::stream_info(void)" (??0stream_info@lsl@@QAE@XZ)
-Reader.obj : error LNK2019: unresolved external symbol __imp__lsl_destroy_streaminfo referenced in function "public: __thiscall lsl::stream_info::~stream_info(void)" (??1stream_info@lsl@@QAE@XZ)
-C:\Users\HCI_Lab_003\Downloads\C++ Code\KinectLSL\KinectLSL\\..\liblsl-CPP\lib\lsl.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
-C:\Users\HCI_Lab_003\Downloads\C++ Code\KinectLSL\Debug\KinectLSL.exe : fatal error LNK1120: 2 unresolved externals
