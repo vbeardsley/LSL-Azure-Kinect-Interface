@@ -81,7 +81,7 @@ DWORD WINAPI audioThread(LPVOID lpParameter)
 
     hnsActualDuration = (double)REFTIMES_PER_SEC * bufferFrameCount / pwfx->nSamplesPerSec;
 
-    audioInfo = lsl::stream_info("Audio Stream", "Audio", 480, pwfx->nSamplesPerSec, 
+    audioInfo = lsl::stream_info("Audio Stream", "Audio", 480*28, 100, 
         lsl::channel_format_t::cf_int8, "Audio ID - 5");
     audioOutlet = lsl::stream_outlet(audioInfo);
 
@@ -99,12 +99,12 @@ DWORD WINAPI audioThread(LPVOID lpParameter)
             if (flags & AUDCLNT_BUFFERFLAGS_SILENT) {
                 pData = NULL;
                 for (int iterator = 0; 0 < numFramesAvailable; iterator += 480) { //480 = packet size in my computer
-                    char blanks[480];
+                    char blanks[480*28];
                     audioOutlet.push_sample(blanks);
                 }
             }
             else {
-                for (int iterator = 0; iterator < numFramesAvailable; iterator += 480) {
+                for (int iterator = 0; iterator < numFramesAvailable; iterator += 480*28) {
                     audioOutlet.push_sample((char*)&pData[iterator]);
                 }
             }
